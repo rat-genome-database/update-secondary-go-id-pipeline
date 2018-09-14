@@ -1,0 +1,18 @@
+Sep 14, 2018, v.1.4.4
+  moved from subversion to github
+
+Jul 30, 2018, v.1.4.3
+  replaced stdout print out with log4j loggers
+
+Aug 14, 2017, v.1.4.2
+  fixed script to email the summary mail; put last-modified-by value to property file
+
+May 31, 2017, v.1.4.1
+  upgraded from ANT to GRADLE
+
+March 4, 2014, v.1.4
+  to conserve space, the input obo file is downloaded as gzip-compressed;
+  also replaced obo parser with custom text parser, because obo parser did not support reading from gzipped file
+
+December 17, 2012, v.1.3
+  fixed code so pipeline won't break when there is no term in RGD corresponding to primary GOID

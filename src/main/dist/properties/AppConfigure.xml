@@ -1,0 +1,16 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="manager" class="edu.mcw.rgd.pipelines.UpdateSecondaryGOID">
+        <property name="version" value="UpdateSecondaryGOID v. 1.4.4, Sep 14, 2018" />
+        <property name="obo" ref="obo"/>
+        <property name="lastModifiedBy" value="171"/>
+    </bean>
+
+	<bean id="obo" class="edu.mcw.rgd.pipelines.OBOSecondaryIDs">
+        <property name="externalOboFile" value="ftp://ftp.geneontology.org/pub/go/ontology/gene_ontology_edit.obo"/>
+        <property name="localOboFile" value="data/gene_ontology_edit.obo"/>
+	</bean>
+</beans>
+
+

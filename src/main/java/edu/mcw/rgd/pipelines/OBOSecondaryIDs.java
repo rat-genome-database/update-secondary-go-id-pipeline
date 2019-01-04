@@ -1,13 +1,13 @@
 package edu.mcw.rgd.pipelines;
 
 import edu.mcw.rgd.process.FileDownloader;
+import edu.mcw.rgd.process.Utils;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.FileSystemResource;
 
 import java.io.*;
 import java.util.*;
-import java.util.zip.GZIPInputStream;
 
 /**
  * @author mtutaj
@@ -23,7 +23,7 @@ public class OBOSecondaryIDs {
 
         Map<String, Set<String>> primaries = new HashMap<String, Set<String>>();
 
-        BufferedReader fi = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(oboFile))));
+        BufferedReader fi = Utils.openReader(oboFile);
 
         String line;
         String id = null;

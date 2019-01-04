@@ -8,6 +8,6 @@ if [ "$SERVER" = "REED" ]; then
   EMAIL_LIST="rgd.developers@mcw.edu,jrsmith@mcw.edu"
 fi
 
-$APPDIR/_run.sh "$@" 2>&1 > $APPDIR/logs/status.log
+$APPDIR/_run.sh "$@" 2>&1 > $APPDIR/run.log
 
-mailx -s "[$SERVER] Update Secondary GOIDs with Primary GOIDs in FULL_ANNOT table" $EMAIL_LIST < $APPDIR/logs/status.log
+mailx -s "[$SERVER] Update Secondary GOIDs with Primary GOIDs in FULL_ANNOT table" $EMAIL_LIST < $APPDIR/logs/summary.log

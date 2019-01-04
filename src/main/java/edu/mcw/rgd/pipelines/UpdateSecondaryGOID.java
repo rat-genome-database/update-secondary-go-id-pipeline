@@ -112,6 +112,7 @@ public class UpdateSecondaryGOID {
         logStatus.info(updatedTermCount+" distinct terms are updated for "+updatedSecondaryGOIDCount+" rows in the FULL_ANNOT table");
         logStatus.info(deleteDuplicateRowCount + " duplicate rows are deleted from the FULL_ANNOT table");
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
+        logStatus.info("");
     }
 
     public OBOSecondaryIDs getObo() {

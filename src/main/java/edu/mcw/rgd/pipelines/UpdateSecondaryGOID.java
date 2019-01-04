@@ -75,8 +75,7 @@ public class UpdateSecondaryGOID {
                     if( Utils.intsAreEqual(secondaryFullAnnot.getAnnotatedObjectRgdId(), primaryFullAnnot.getAnnotatedObjectRgdId())
                      && Utils.intsAreEqual(secondaryFullAnnot.getRefRgdId(), primaryFullAnnot.getRefRgdId())
                      && Utils.stringsAreEqual(secondaryFullAnnot.getEvidence(), primaryFullAnnot.getEvidence())
-                     && Utils.stringsAreEqual(secondaryFullAnnot.getWithInfo(), primaryFullAnnot.getWithInfo())
-                     && Utils.intsAreEqual(secondaryFullAnnot.getExpRgdId(), primaryFullAnnot.getExpRgdId()) )
+                     && Utils.stringsAreEqual(secondaryFullAnnot.getWithInfo(), primaryFullAnnot.getWithInfo()) )
                     {
                         dao.deleteAnnotation(secondaryFullAnnot.getKey());
                         deleteDuplicateRowCount++;

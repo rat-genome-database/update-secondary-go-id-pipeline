@@ -1,5 +1,5 @@
 Jan 4, 2019, v.1.4.5
-  logging tune up
+  logging tune up; updated dependencies
 
 Sep 14, 2018, v.1.4.4
   moved from subversion to github

@@ -1,5 +1,6 @@
 package edu.mcw.rgd.pipelines;
 
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Date;
 
@@ -50,7 +51,9 @@ public class UpdateSecondaryGOID {
         long time0 = System.currentTimeMillis();
 
         logStatus.info(this.getVersion());
-        logStatus.info(dao.getConnectionInfo());
+        logStatus.info("   "+dao.getConnectionInfo());
+        SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        logStatus.info("   started at "+sdt.format(new Date(time0)));
 
         String oboFile = getObo().downloadOboFile();
 
@@ -106,10 +109,10 @@ public class UpdateSecondaryGOID {
 
         }
 
-        logStatus.info("Number of secondaryGOIDs read from the file: " + s);
-        logStatus.info("Secondary GOIDs are updated in "+updatedSecondaryGOIDCount+" rows in the FULL_ANNOT table");
-        logStatus.info(updatedTermCount+" distinct terms are updated for "+updatedSecondaryGOIDCount+" rows in the FULL_ANNOT table");
-        logStatus.info(deleteDuplicateRowCount + " duplicate rows are deleted from the FULL_ANNOT table");
+        logStatus.info("Secondary GOIDs read from : " + s);
+        logStatus.info("Secondary GOIDs updated in "+updatedSecondaryGOIDCount+" rows in FULL_ANNOT table");
+        logStatus.info(updatedTermCount+" distinct terms updated for "+updatedSecondaryGOIDCount+" rows in FULL_ANNOT table");
+        logStatus.info(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table");
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
         logStatus.info("");
     }

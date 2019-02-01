@@ -1,3 +1,6 @@
+Feb 1, 2019, v.1.4.6
+  summary email tuneup
+
 Jan 4, 2019, v.1.4.5
   logging tune up; updated dependencies
 

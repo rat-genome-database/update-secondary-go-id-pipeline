@@ -1,3 +1,7 @@
+Feb 7, 2019, v.1.5.0
+  secondary ids are no longer read from GO ontology file;
+  now they are read directly from GO ontology synonyms in the database
+
 Feb 1, 2019, v.1.4.6
   summary email tuneup
 

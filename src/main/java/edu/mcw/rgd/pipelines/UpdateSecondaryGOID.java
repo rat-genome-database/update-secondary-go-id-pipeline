@@ -23,7 +23,6 @@ import org.springframework.core.io.FileSystemResource;
  */
 public class UpdateSecondaryGOID {
 
-    OBOSecondaryIDs obo;
     UpdateSecondaryGoidDAO dao = new UpdateSecondaryGoidDAO();
     private String version;
     private int lastModifiedBy;
@@ -55,9 +54,7 @@ public class UpdateSecondaryGOID {
         SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         logStatus.info("   started at "+sdt.format(new Date(time0)));
 
-        String oboFile = getObo().downloadOboFile();
-
-        Map<String, String> secondary2primary = getObo().getSecondaryMappedToPrimaryIDs(oboFile);
+        Map<String, String> secondary2primary = dao.getSecondary2PrimaryMap();
 
         int s=0;
         int updatedTermCount=0;
@@ -115,14 +112,6 @@ public class UpdateSecondaryGOID {
         logStatus.info(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table");
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
         logStatus.info("");
-    }
-
-    public OBOSecondaryIDs getObo() {
-        return obo;
-    }
-
-    public void setObo(OBOSecondaryIDs obo) {
-        this.obo = obo;
     }
 
     public void setVersion(String version) {

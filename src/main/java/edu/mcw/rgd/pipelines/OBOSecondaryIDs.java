@@ -13,6 +13,7 @@ import java.util.*;
  * @author mtutaj
  * @since Mar 4, 2014
  * extract secondary ids (lines starting with alt_id:) from all terms in the obo file
+ * @deprecated replaced by retrieving data directly from database
  */
 public class OBOSecondaryIDs {
 

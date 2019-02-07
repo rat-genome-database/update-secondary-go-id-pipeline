@@ -4,8 +4,11 @@ import edu.mcw.rgd.dao.impl.AnnotationDAO;
 import edu.mcw.rgd.dao.impl.OntologyXDAO;
 import edu.mcw.rgd.datamodel.ontology.Annotation;
 import edu.mcw.rgd.datamodel.ontologyx.Term;
+import edu.mcw.rgd.datamodel.ontologyx.TermSynonym;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author mtutaj
@@ -62,5 +65,19 @@ public class UpdateSecondaryGoidDAO {
      */
     public Term getTerm(String accId) throws Exception {
         return ontDAO.getTermByAccId(accId);
+    }
+
+    public Map<String,String> getSecondary2PrimaryMap() throws Exception {
+        Map<String,String> resultMap = new HashMap<>();
+        String[] ontologies = { "BP", "CC", "MF" }; // GO ontologies
+        for( String ontId: ontologies ) {
+            List<TermSynonym> altIdSynonyms = ontDAO.getActiveSynonymsByType(ontId, "alt_id");
+            for( TermSynonym tsyn: altIdSynonyms ) {
+                if( tsyn.getName().startsWith("GO:") ) {
+                    resultMap.put(tsyn.getName(), tsyn.getTermAcc());
+                }
+            }
+        }
+        return resultMap;
     }
 }

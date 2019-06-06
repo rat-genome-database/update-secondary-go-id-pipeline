@@ -1,5 +1,5 @@
-Feb 7, 2019, v.1.5.0
-  secondary ids are no longer read from GO ontology file;
+Jun 6, 2019, v.1.5.2
+  tuned up logging
 
 Feb 7, 2019, v.1.5.0
   secondary ids are no longer read from GO ontology file;

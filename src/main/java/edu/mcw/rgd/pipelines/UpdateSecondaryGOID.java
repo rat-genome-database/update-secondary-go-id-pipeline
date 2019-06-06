@@ -15,7 +15,6 @@ import org.springframework.core.io.FileSystemResource;
 /**
  * @author BBakir
  * @since Feb 18, 2008
- * <p>
  * Program to update Secondary GOIDs (TERM_ACC, TERM fields) in the FULL_ANNOT table
  * with the Primary GOIDs (TERM_ACC field) which have the same TERM_ACC with the TERM_ACC field in the ONT_TERMS table.
  * To eliminate UNIQUE CONSTRAINT violation in the FULL_ANNOT table, program deletes the row with Secondary GOID
@@ -106,10 +105,18 @@ public class UpdateSecondaryGOID {
 
         }
 
-        logStatus.info("Secondary GOIDs read from : " + s);
-        logStatus.info("Secondary GOIDs updated in "+updatedSecondaryGOIDCount+" rows in FULL_ANNOT table");
-        logStatus.info(updatedTermCount+" distinct terms updated for "+updatedSecondaryGOIDCount+" rows in FULL_ANNOT table");
-        logStatus.info(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table");
+        if( s!=0 ) {
+            logStatus.info("Secondary GOIDs read from : " + s);
+        }
+        if( updatedSecondaryGOIDCount!=0 ) {
+            logStatus.info("Secondary GOIDs updated in " + updatedSecondaryGOIDCount + " rows in FULL_ANNOT table");
+        }
+        if( updatedTermCount!=0 ) {
+            logStatus.info(updatedTermCount + " distinct terms updated for " + updatedSecondaryGOIDCount + " rows in FULL_ANNOT table");
+        }
+        if( deleteDuplicateRowCount!=0 ) {
+            logStatus.info(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table");
+        }
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
         logStatus.info("");
     }

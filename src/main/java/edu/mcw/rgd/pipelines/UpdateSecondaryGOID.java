@@ -106,7 +106,7 @@ public class UpdateSecondaryGOID {
         }
 
         if( s!=0 ) {
-            logStatus.info("Secondary GOIDs read from : " + s);
+            logStatus.info("Secondary GOIDs read from ontology tables: " + s);
         }
         if( updatedSecondaryGOIDCount!=0 ) {
             logStatus.info("Secondary GOIDs updated in " + updatedSecondaryGOIDCount + " rows in FULL_ANNOT table");

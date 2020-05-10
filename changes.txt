@@ -1,3 +1,6 @@
+May 10, 2020
+  updated jar dependencies
+
 Jun 6, 2019, v.1.5.2
   tuned up logging
 

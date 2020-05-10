@@ -2,7 +2,7 @@
 
 <beans>
     <bean id="manager" class="edu.mcw.rgd.pipelines.UpdateSecondaryGOID">
-        <property name="version" value="UpdateSecondaryGOID v. 1.5.2, Jun 6, 2019" />
+        <property name="version" value="UpdateSecondaryGOID  -- build May 10, 2020" />
         <property name="lastModifiedBy" value="171"/>
     </bean>
 </beans>

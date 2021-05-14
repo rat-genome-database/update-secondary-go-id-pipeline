@@ -55,13 +55,13 @@ public class UpdateSecondaryGOID {
 
         Map<String, String> secondary2primary = dao.getSecondary2PrimaryMap();
 
-        int s=0;
+        int secGoIdCount=0;
         int updatedTermCount=0;
         int updatedSecondaryGOIDCount=0;
         int deleteDuplicateRowCount=0;
 
         for (String secondaryID : secondary2primary.keySet()) {
-            s++;
+            secGoIdCount++;
             String primaryID = secondary2primary.get(secondaryID);
 
             for( Annotation secondaryFullAnnot: dao.getAnnotations(secondaryID)) {
@@ -105,14 +105,14 @@ public class UpdateSecondaryGOID {
 
         }
 
-        if( s!=0 ) {
-            logStatus.info(s+" secondary GOIDs read from GO ontology tables");
+        if( secGoIdCount!=0 ) {
+            logStatus.info(Utils.formatThousands(secGoIdCount)+" secondary GOIDs read from GO ontology tables");
         }
         if( updatedTermCount!=0 ) {
-            logStatus.info(updatedTermCount + " distinct terms updated for " + updatedSecondaryGOIDCount + " rows in FULL_ANNOT table");
+            logStatus.info(Utils.formatThousands(updatedTermCount) + " distinct terms updated for " + Utils.formatThousands(updatedSecondaryGOIDCount) + " rows in FULL_ANNOT table");
         }
         if( deleteDuplicateRowCount!=0 ) {
-            logStatus.info(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table");
+            logStatus.info(Utils.formatThousands(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table"));
         }
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
         logStatus.info("");

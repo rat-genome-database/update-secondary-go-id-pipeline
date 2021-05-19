@@ -112,7 +112,7 @@ public class UpdateSecondaryGOID {
             logStatus.info(Utils.formatThousands(updatedTermCount) + " distinct terms updated for " + Utils.formatThousands(updatedSecondaryGOIDCount) + " rows in FULL_ANNOT table");
         }
         if( deleteDuplicateRowCount!=0 ) {
-            logStatus.info(Utils.formatThousands(deleteDuplicateRowCount + " duplicate rows deleted from FULL_ANNOT table"));
+            logStatus.info(Utils.formatThousands(deleteDuplicateRowCount) + " duplicate rows deleted from FULL_ANNOT table");
         }
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
         logStatus.info("");

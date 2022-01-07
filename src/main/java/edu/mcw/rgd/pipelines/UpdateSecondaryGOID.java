@@ -7,7 +7,8 @@ import java.util.Date;
 import edu.mcw.rgd.datamodel.ontology.Annotation;
 import edu.mcw.rgd.datamodel.ontologyx.Term;
 import edu.mcw.rgd.process.Utils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.FileSystemResource;
@@ -26,10 +27,10 @@ public class UpdateSecondaryGOID {
     private String version;
     private int lastModifiedBy;
 
-    Logger logStatus = Logger.getLogger("status");
-    Logger logPairs = Logger.getLogger("pairs");
-    Logger logDeleted = Logger.getLogger("deleted");
-    Logger logUpdated = Logger.getLogger("updated");
+    Logger logStatus = LogManager.getLogger("status");
+    Logger logPairs = LogManager.getLogger("pairs");
+    Logger logDeleted = LogManager.getLogger("deleted");
+    Logger logUpdated = LogManager.getLogger("updated");
 
     public static void main(String[] args) throws Exception {
 

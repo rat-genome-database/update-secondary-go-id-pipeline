@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 . /etc/profile
 
-APPNAME=updateSecondaryGOID
+APPNAME="update-secondary-go-id-pipeline"
 APPDIR=/home/rgddata/pipelines/$APPNAME
 
 cd $APPDIR

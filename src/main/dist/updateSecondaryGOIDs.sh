@@ -1,6 +1,6 @@
 # Replace GO secondary ids with GO primary ids, in GO annotations.
 
-APPNAME=updateSecondaryGOID
+APPNAME="update-secondary-go-id-pipeline"
 APPDIR=/home/rgddata/pipelines/$APPNAME
 SERVER=`hostname -s | tr '[a-z]' '[A-Z]'`
 EMAIL_LIST=mtutaj@mcw.edu

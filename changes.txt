@@ -1,3 +1,6 @@
+Sep 19, 2022
+  updated jar dependencies
+
 Jun 27, 2022
   renamed 'master' into 'main' branch
 

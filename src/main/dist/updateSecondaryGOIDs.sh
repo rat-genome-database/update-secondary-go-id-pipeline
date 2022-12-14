@@ -10,4 +10,4 @@ fi
 
 $APPDIR/_run.sh "$@" 2>&1 > $APPDIR/run.log
 
-mailx -s "[$SERVER] Update Secondary GOIDs with Primary GOIDs in FULL_ANNOT table" $EMAIL_LIST < $APPDIR/logs/summary.log
+mailx -s "[$SERVER] Update Secondary GOIDs with Primary GOIDs in FULL_ANNOT OK" $EMAIL_LIST < $APPDIR/logs/summary.log

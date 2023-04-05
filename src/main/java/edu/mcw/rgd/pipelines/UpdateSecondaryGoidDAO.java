@@ -73,7 +73,7 @@ public class UpdateSecondaryGoidDAO {
         for( String ontId: ontologies ) {
             List<TermSynonym> altIdSynonyms = ontDAO.getActiveSynonymsByType(ontId, "alt_id");
             for( TermSynonym tsyn: altIdSynonyms ) {
-                if( tsyn.getName().startsWith("GO:") ) {
+                if( tsyn.getName().startsWith("GO:") && tsyn.getTermAcc().startsWith("GO:") ) {
                     resultMap.put(tsyn.getName(), tsyn.getTermAcc());
                 }
             }

@@ -1,3 +1,6 @@
+Mar 05, 2026
+  updated dependencies; expanded duplicate detection to also check xrefSource, qualifier, qualifier2, and associatedWith
+
 Dec 03, 2025
 Jul 24, 2025
 Jun 20, 2025

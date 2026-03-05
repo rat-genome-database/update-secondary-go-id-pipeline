@@ -73,9 +73,13 @@ public class UpdateSecondaryGOID {
                 for( Annotation primaryFullAnnot: dao.getAnnotations(primaryID)) {
 
                     if( Utils.intsAreEqual(secondaryFullAnnot.getAnnotatedObjectRgdId(), primaryFullAnnot.getAnnotatedObjectRgdId())
-                     && Utils.intsAreEqual(secondaryFullAnnot.getRefRgdId(), primaryFullAnnot.getRefRgdId())
-                     && Utils.stringsAreEqual(secondaryFullAnnot.getEvidence(), primaryFullAnnot.getEvidence())
-                     && Utils.stringsAreEqual(secondaryFullAnnot.getWithInfo(), primaryFullAnnot.getWithInfo()) )
+                        && Utils.intsAreEqual(secondaryFullAnnot.getRefRgdId(), primaryFullAnnot.getRefRgdId())
+                        && Utils.stringsAreEqual(secondaryFullAnnot.getEvidence(), primaryFullAnnot.getEvidence())
+                        && Utils.stringsAreEqual(secondaryFullAnnot.getXrefSource(), primaryFullAnnot.getXrefSource())
+                        && Utils.stringsAreEqual(secondaryFullAnnot.getQualifier(), primaryFullAnnot.getQualifier())
+                        && Utils.stringsAreEqual(secondaryFullAnnot.getQualifier2(), primaryFullAnnot.getQualifier2())
+                        && Utils.stringsAreEqual(secondaryFullAnnot.getAssociatedWith(), primaryFullAnnot.getAssociatedWith())
+                        && Utils.stringsAreEqual(secondaryFullAnnot.getWithInfo(), primaryFullAnnot.getWithInfo()) )
                     {
                         dao.deleteAnnotation(secondaryFullAnnot.getKey());
                         deleteDuplicateRowCount++;

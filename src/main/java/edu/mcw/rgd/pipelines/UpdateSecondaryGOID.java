@@ -55,8 +55,7 @@ public class UpdateSecondaryGOID {
         logStatus.info("   started at "+sdt.format(new Date(time0)));
 
         Map<String, String> secondary2primary = dao.getSecondary2PrimaryMap();
-        logStatus.info("count of primary,secondary GO ids to be processed: "+secondary2primary.size());
-        
+
         int secGoIdCount=0;
         int updatedTermCount=0;
         int updatedSecondaryGOIDCount=0;
@@ -65,10 +64,10 @@ public class UpdateSecondaryGOID {
         for (String secondaryID : secondary2primary.keySet()) {
             secGoIdCount++;
             String primaryID = secondary2primary.get(secondaryID);
+            logPairs.info("S: "+secondaryID + " -> P: "+primaryID);
 
             for( Annotation secondaryFullAnnot: dao.getAnnotations(secondaryID)) {
 
-                logPairs.info("S: "+secondaryID + " -> P: "+primaryID);
                 updatedSecondaryGOIDCount++;
 
                 for( Annotation primaryFullAnnot: dao.getAnnotations(secondaryFullAnnot.getAnnotatedObjectRgdId(), primaryID)) {
@@ -99,6 +98,7 @@ public class UpdateSecondaryGOID {
                     logStatus.warn("CONFLICT: Primary GOID "+primaryID+" not found in RGD database!");
                     continue;
                 }
+                String secondaryTermName = secondaryFullAnnot.getTerm();
 
                 // update secondary term_acc,term with primary term_acc,term
                 secondaryFullAnnot.setTermAcc(primaryID);
@@ -107,7 +107,7 @@ public class UpdateSecondaryGOID {
                 secondaryFullAnnot.setLastModifiedDate(new Date());
                 if( dao.updateAnnotation(secondaryFullAnnot)!=0 ) {
 
-                    logUpdated.info(secondaryID + " -> "+primaryID+" ST: "+secondaryFullAnnot.getTerm()+" PT: "+term.getTerm());
+                    logUpdated.info(secondaryID + " -> "+primaryID+" ST: "+secondaryTermName+" PT: "+term.getTerm());
                     updatedTermCount++;
                 }
             }

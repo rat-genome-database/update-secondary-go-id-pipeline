@@ -2,7 +2,8 @@ Mar 05, 2026
   updated dependencies; expanded duplicate detection to also check xrefSource, qualifier, qualifier2, and associatedWith
   improved delete logging: dump both conflicting secondary and matching primary annotations
   optimized duplicate detection: narrow primary annotation query by RGD object ID
-  added progress logging for secondary-to-primary GO ID pair count
+  fixed update log to show original secondary term name before overwrite
+  moved pair logging to outer loop to avoid duplicate log entries
 
 Dec 03, 2025
 Jul 24, 2025

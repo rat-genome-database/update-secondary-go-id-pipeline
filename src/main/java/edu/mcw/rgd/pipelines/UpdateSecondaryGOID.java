@@ -83,8 +83,10 @@ public class UpdateSecondaryGOID {
                     {
                         dao.deleteAnnotation(secondaryFullAnnot.getKey());
                         deleteDuplicateRowCount++;
-                        logDeleted.info("DELETE primary FULL_ANNOT key: "+primaryFullAnnot.getKey()+"  primary GO: "+primaryID);
-                        logDeleted.info("     "+secondaryFullAnnot.dump("|"));
+                        logDeleted.info("CONFLICTING ANNOT DELETED:\n"+
+                            "     "+secondaryFullAnnot.dump("|")+"\n"+
+                            "PRIMARY ANNOT:\n"+
+                            "     "+primaryFullAnnot.dump("|"));
                     }
                 }
             }

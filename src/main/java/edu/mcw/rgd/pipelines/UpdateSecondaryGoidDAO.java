@@ -34,6 +34,10 @@ public class UpdateSecondaryGoidDAO {
         return annotDAO.getAnnotations(accId, false, 0);
     }
 
+    public List<Annotation> getAnnotations(int rgdId, String termAcc) throws Exception {
+        return annotDAO.getAnnotations(rgdId, termAcc);
+    }
+
     /**
      * update annotation object
      *

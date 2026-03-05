@@ -55,7 +55,8 @@ public class UpdateSecondaryGOID {
         logStatus.info("   started at "+sdt.format(new Date(time0)));
 
         Map<String, String> secondary2primary = dao.getSecondary2PrimaryMap();
-
+        logStatus.info("count of primary,secondary GO ids to be processed: "+secondary2primary.size());
+        
         int secGoIdCount=0;
         int updatedTermCount=0;
         int updatedSecondaryGOIDCount=0;
@@ -70,7 +71,7 @@ public class UpdateSecondaryGOID {
                 logPairs.info("S: "+secondaryID + " -> P: "+primaryID);
                 updatedSecondaryGOIDCount++;
 
-                for( Annotation primaryFullAnnot: dao.getAnnotations(primaryID)) {
+                for( Annotation primaryFullAnnot: dao.getAnnotations(secondaryFullAnnot.getAnnotatedObjectRgdId(), primaryID)) {
 
                     if( Utils.intsAreEqual(secondaryFullAnnot.getAnnotatedObjectRgdId(), primaryFullAnnot.getAnnotatedObjectRgdId())
                         && Utils.intsAreEqual(secondaryFullAnnot.getRefRgdId(), primaryFullAnnot.getRefRgdId())

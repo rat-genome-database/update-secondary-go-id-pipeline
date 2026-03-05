@@ -83,7 +83,8 @@ public class UpdateSecondaryGOID {
                     {
                         dao.deleteAnnotation(secondaryFullAnnot.getKey());
                         deleteDuplicateRowCount++;
-                        logDeleted.info("DEL PrimaryFAKey: "+primaryFullAnnot.getKey()+" SecondaryFAKey: "+secondaryFullAnnot.getKey()+" PrimaryGOID: "+primaryID+" SecondaryGOID: "+secondaryID);
+                        logDeleted.info("DELETE primary FULL_ANNOT key: "+primaryFullAnnot.getKey()+"  primary GO: "+primaryID);
+                        logDeleted.info("     "+secondaryFullAnnot.dump("|"));
                     }
                 }
             }

@@ -1,5 +1,6 @@
 Mar 05, 2026
   updated dependencies; expanded duplicate detection to also check xrefSource, qualifier, qualifier2, and associatedWith
+  improved delete logging: show full annotation dump instead of summary
 
 Dec 03, 2025
 Jul 24, 2025

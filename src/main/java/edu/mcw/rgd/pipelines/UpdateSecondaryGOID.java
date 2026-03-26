@@ -6,6 +6,7 @@ import java.util.Date;
 
 import edu.mcw.rgd.datamodel.ontology.Annotation;
 import edu.mcw.rgd.datamodel.ontologyx.Term;
+import edu.mcw.rgd.process.MemoryMonitor;
 import edu.mcw.rgd.process.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -48,6 +49,9 @@ public class UpdateSecondaryGOID {
     void run() throws Exception {
 
         long time0 = System.currentTimeMillis();
+
+        MemoryMonitor memoryMonitor = new MemoryMonitor();
+        memoryMonitor.start();
 
         logStatus.info(this.getVersion());
         logStatus.info("   "+dao.getConnectionInfo());
@@ -123,6 +127,8 @@ public class UpdateSecondaryGOID {
         if( deleteDuplicateRowCount!=0 ) {
             logStatus.info(Utils.formatThousands(deleteDuplicateRowCount) + " duplicate rows deleted from FULL_ANNOT table");
         }
+        memoryMonitor.stop();
+        logStatus.info(memoryMonitor.getSummary());
         logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
         logStatus.info("");
     }

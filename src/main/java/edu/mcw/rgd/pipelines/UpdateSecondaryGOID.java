@@ -129,7 +129,7 @@ public class UpdateSecondaryGOID {
         }
         memoryMonitor.stop();
         logStatus.info(memoryMonitor.getSummary());
-        logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(System.currentTimeMillis(), time0));
+        logStatus.info("=== OK == elapsed time "+Utils.formatElapsedTime(time0, System.currentTimeMillis()));
         logStatus.info("");
     }
 

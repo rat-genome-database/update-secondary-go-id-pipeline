@@ -1,3 +1,6 @@
+Jul 10, 2026
+  fixed elapsed time log showing wrong value; updated dependencies
+
 Apr 17, 2026
   removed deprecated OBOSecondaryIDs.java; updated dependencies
 

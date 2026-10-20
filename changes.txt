@@ -1,3 +1,6 @@
+Oct 20, 2026
+  migrated to postgres; updated dependencies
+
 Jul 10, 2026
   fixed elapsed time log showing wrong value; updated dependencies
 
